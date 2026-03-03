@@ -1,9 +1,10 @@
 import { Route, Routes } from 'react-router-dom'
+import Restaurantes from './Pages/Restaurantes'
 
 const Rotas = () => {
   return (
     <Routes>
-      <Route path="/" element={<h1>Home</h1>} />
+      <Route path="/" element={<Restaurantes />} />
     </Routes>
   )
 }

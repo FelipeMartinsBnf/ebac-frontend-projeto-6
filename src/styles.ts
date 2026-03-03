@@ -1,11 +1,14 @@
-import { createGlobalStyle } from 'styled-components'
+import styled, { createGlobalStyle } from 'styled-components'
+
+export type TextProps = {
+  size?: 'small' | 'medium' | 'large'
+  color: 'white' | 'pink'
+}
 
 export const colors = {
   white: '#EEEEEE',
-  black: '#111111',
-  gray: '#333333',
-  lightGray: '#A3A4A3',
-  green: '#10AC84'
+  lightCream: '#FFF8F2',
+  pink: '#E66767'
 }
 
 export const GlobalCss = createGlobalStyle`
@@ -15,12 +18,12 @@ export const GlobalCss = createGlobalStyle`
     box-sizing: border-box;
     font-family: "Inter", sans-serif;
     list-style: none;
+    text-decoration: none;
   }
 
   body {
-    background-color: ${colors.black};
+    background-color: ${colors.lightCream};
     color: ${colors.white};
-    padding-top: 40px;
   }
 
   .container {
@@ -28,4 +31,21 @@ export const GlobalCss = createGlobalStyle`
       margin: 0 auto;
       width: 100%;
   }
+`
+
+export const Text = styled.p<TextProps>`
+  font-size: ${({ size }) => {
+    switch (size) {
+      case 'small':
+        return '12px'
+      case 'medium':
+        return '14px'
+      case 'large':
+        return '18px'
+      default:
+        return '14px'
+    }
+  }};
+
+  color: ${({ color }) => (color === 'white' ? colors.white : colors.pink)};
 `
