@@ -11,6 +11,7 @@ export const ButtonContainer = styled.div`
   text-decoration: none;
   border-radius: 8px;
   display: inline-block;
+  margin-top: auto;
 `
 
 export const ButtonLink = styled(Link)`

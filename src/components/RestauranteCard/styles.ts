@@ -1,24 +1,41 @@
 import styled from 'styled-components'
 import { colors } from '../../styles'
 import { TagContainer } from '../Tag/styles'
+import Button from '../Button'
+import { ButtonContainer, ButtonLink } from '../Button/styles'
 
 export const Card = styled.div`
   background-color: ${colors.lightCream};
-  padding: 8px;
-  border-radius: 8px;
   width: 100%;
-  display: block;
+  display: flex;
+  flex-direction: column;
   position: relative;
-  border: 1px solid ${colors.pink};
   color: ${colors.pink};
+  height: 100%;
 
   img {
     width: 100%;
-    border-radius: 8px;
+    border-radius: 8px 8px 0 0;
+    object-fit: cover;
+    height: 200px;
   }
+`
+
+export const CardContent = styled.div`
+  padding: 8px;
+  border: 1px solid ${colors.pink};
+  border-radius: 0 0 8px 8px;
+  border-top: none;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
 
   ${TagContainer} {
     margin-right: 8px;
+  }
+
+  ${ButtonContainer} {
+    width: fit-content;
   }
 `
 
@@ -41,6 +58,7 @@ export const Description = styled.p`
   line-height: 22px;
   display: block;
   margin: 16px 0;
+  flex: 1;
 `
 
 export const Infos = styled.div`
