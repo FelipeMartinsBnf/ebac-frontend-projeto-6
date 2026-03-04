@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom'
 const Header = () => (
   <HeaderContainer style={{ backgroundImage: `url(${background})` }}>
     <div className="container">
-      <Link to="/restaurantes">
+      <Link to="/">
         <Text size="large" color="pink">
           <strong>Restaurantes</strong>
         </Text>

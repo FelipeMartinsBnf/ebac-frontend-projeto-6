@@ -4,37 +4,26 @@ import { TagContainer } from '../Tag/styles'
 import { ButtonContainer } from '../Button/styles'
 
 export const Card = styled.div`
-  background-color: ${colors.lightCream};
+  background-color: ${colors.pink};
+  padding: 8px;
+  color: ${colors.lightCream};
+  border-radius: 8px;
   width: 100%;
   display: flex;
   flex-direction: column;
-  position: relative;
-  color: ${colors.pink};
   height: 100%;
 
   img {
     width: 100%;
-    border-radius: 8px 8px 0 0;
-    object-fit: cover;
+    border-radius: 8px;
     height: 200px;
-  }
-`
-
-export const CardContent = styled.div`
-  padding: 8px;
-  border: 1px solid ${colors.pink};
-  border-radius: 0 0 8px 8px;
-  border-top: none;
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-
-  ${TagContainer} {
-    margin-right: 8px;
   }
 
   ${ButtonContainer} {
-    width: fit-content;
+    background-color: ${colors.lightCream};
+    color: ${colors.pink};
+    text-align: center;
+    font-weight: bold;
   }
 `
 

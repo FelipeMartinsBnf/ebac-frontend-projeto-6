@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import Restaurante from '../../models/restaurante'
 import Button from '../Button'
 import Tag from '../Tag'
@@ -28,7 +29,9 @@ const RestauranteCard = ({ restaurante }: Props) => (
         <span>{restaurante.rating} ⭐</span>
       </CardTitleDiv>
       <Description>{restaurante.description}</Description>
-      <Button type="button">Saiba mais</Button>
+      <Link to={`/restaurantes/${restaurante.id}`}>
+        <Button type="button">Saiba mais</Button>
+      </Link>
     </CardContent>
   </Card>
 )

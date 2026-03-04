@@ -8,6 +8,7 @@ export type TextProps = {
 export const colors = {
   white: '#EEEEEE',
   lightCream: '#FFF8F2',
+  cream: '#FFEBD9',
   pink: '#E66767'
 }
 

@@ -27,6 +27,5 @@ export const BannerTag = styled.p`
 
 export const BannerTitle = styled.h2<BannerProps>`
   color: ${(props) => (props.type === 'home' ? colors.pink : colors.white)};
-  justify-content: ${(props) =>
-    props.type === 'home' ? 'center' : 'flex-start'};
+  text-align: ${(props) => (props.type === 'home' ? 'center' : 'left')};
 `

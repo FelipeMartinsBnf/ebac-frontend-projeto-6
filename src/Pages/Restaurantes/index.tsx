@@ -44,14 +44,10 @@ const restaurante2: Restaurante = {
   }))
 }
 
-const restaurantes: Restaurante[] = [
-  restaurante1,
-  restaurante2,
-  restaurante2,
-  restaurante1,
-  restaurante2,
-  restaurante2
-]
+export const restaurantesList = Array.from({ length: 6 }, (_, i) => ({
+  ...[restaurante1, restaurante2][i % 2],
+  id: i + 1
+}))
 
 const Restaurantes = () => (
   <>
@@ -60,7 +56,7 @@ const Restaurantes = () => (
       title="Viva experiências gastronômicas no conforto da sua casa"
       image={background}
     />
-    <RestauranteList restaurantes={restaurantes} />
+    <RestauranteList restaurantes={restaurantesList} />
   </>
 )
 
