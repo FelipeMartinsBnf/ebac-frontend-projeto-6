@@ -17,18 +17,16 @@ type Props = {
 
 const RestauranteCard = ({ restaurante }: Props) => (
   <Card>
-    <img src={restaurante.image} alt={restaurante.name} />
+    <img src={restaurante.capa} alt={restaurante.titulo} />
     <CardContent>
       <Infos>
-        {restaurante.tags.map((tag) => (
-          <Tag key={tag}>{tag}</Tag>
-        ))}
+        <Tag>{restaurante.tipo}</Tag>
       </Infos>
       <CardTitleDiv>
-        <Title>{restaurante.name}</Title>
-        <span>{restaurante.rating} ⭐</span>
+        <Title>{restaurante.titulo}</Title>
+        <span>{restaurante.avaliacao} ⭐</span>
       </CardTitleDiv>
-      <Description>{restaurante.description}</Description>
+      <Description>{restaurante.descricao}</Description>
       <Link to={`/restaurantes/${restaurante.id}`}>
         <Button type="button">Saiba mais</Button>
       </Link>

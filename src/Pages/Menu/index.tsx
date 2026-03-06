@@ -1,14 +1,21 @@
 import { useParams } from 'react-router-dom'
 import background from '../../assets/images/restauranteBanner.png'
 import Banner from '../../components/Banner'
-import { restaurantesList } from '../Restaurantes'
-import MenuCard from '../../components/MenuCard'
 import MenuList from '../../components/MenuList'
+import Restaurante from '../../models/restaurante'
+import { useEffect, useState } from 'react'
 
 function PaginaRestaurante() {
   const { id } = useParams()
 
-  const restaurante = restaurantesList.find((r) => r.id === Number(id))
+  const [restaurante, setRestaurante] = useState<Restaurante>()
+
+  useEffect(() => {
+    fetch(`https://api-ebac.vercel.app/api/efood/restaurantes/${id}`)
+      .then((response) => response.json())
+      .then((data) => setRestaurante(data))
+      .catch((error) => console.error('Erro ao carregar restaurante:', error))
+  }, [id])
 
   if (!restaurante) {
     return <h2>Restaurante não encontrado</h2>
@@ -18,11 +25,11 @@ function PaginaRestaurante() {
     <>
       <Banner
         type="restaurante"
-        title={restaurante.name}
+        title={restaurante.titulo}
         image={background}
-        tag={restaurante.tags[0]}
+        tag={restaurante.tipo}
       />
-      <MenuList itens={restaurante.menu} />
+      <MenuList itens={restaurante.cardapio} />
     </>
   )
 }

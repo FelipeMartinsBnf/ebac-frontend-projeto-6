@@ -1,19 +1,26 @@
 import Button from '../Button'
 import { Card, CardTitleDiv, Description, Title } from './styles'
 import MenuItem from '../../models/menuItem'
+import { ModalState } from '../MenuList'
 
 type Props = {
   menu: MenuItem
+  openModal?: (modal: ModalState) => void
 }
 
-const MenuCard = ({ menu }: Props) => (
+const MenuCard = ({ menu, openModal }: Props) => (
   <Card>
-    <img src={menu.image} alt={menu.name} />
+    <img src={menu.foto} alt={menu.nome} />
     <CardTitleDiv>
-      <Title>{menu.name}</Title>
+      <Title>{menu.nome}</Title>
     </CardTitleDiv>
-    <Description>{menu.description}</Description>
-    <Button type="button">Adicionar ao carrinho</Button>
+    <Description>{menu.descricao}</Description>
+    <Button
+      type="button"
+      onClick={() => openModal?.({ ...menu, isOpen: true })}
+    >
+      Adicionar ao carrinho
+    </Button>
   </Card>
 )
 

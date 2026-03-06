@@ -1,22 +1,25 @@
 class MenuItem {
   id: number
-  name: string
-  description: string
-  price: number
-  image: string
+  nome: string
+  descricao: string
+  preco: number
+  foto: string
+  porcao: string
 
   constructor(
     id: number,
     name: string,
-    description: string,
+    descricao: string,
     price: number,
-    image: string
+    image: string,
+    porcao: string
   ) {
     this.id = id
-    this.name = name
-    this.description = description
-    this.price = price
-    this.image = image
+    this.nome = name
+    this.descricao = descricao
+    this.preco = price
+    this.foto = image
+    this.porcao = porcao
   }
 }
 
