@@ -10,12 +10,14 @@ export const BannerContainer = styled.div`
   background-repeat: no-repeat;
   background-size: cover;
   display: flex;
+  position: relative;
 
   .container {
     padding: 32px;
     display: flex;
     align-items: flex-end;
     position: relative;
+    z-index: 1;
   }
 `
 
@@ -28,4 +30,13 @@ export const BannerTag = styled.p`
 export const BannerTitle = styled.h2<BannerProps>`
   color: ${(props) => (props.type === 'home' ? colors.pink : colors.white)};
   text-align: ${(props) => (props.type === 'home' ? 'center' : 'left')};
+`
+
+export const BannerOverlay = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
 `

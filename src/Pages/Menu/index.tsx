@@ -1,5 +1,4 @@
 import { useParams } from 'react-router-dom'
-import background from '../../assets/images/restauranteBanner.png'
 import Banner from '../../components/Banner'
 import MenuList from '../../components/MenuList'
 import Restaurante from '../../models/restaurante'
@@ -26,7 +25,7 @@ function PaginaRestaurante() {
       <Banner
         type="restaurante"
         title={restaurante.titulo}
-        image={background}
+        image={restaurante.capa}
         tag={restaurante.tipo}
       />
       <MenuList itens={restaurante.cardapio} />

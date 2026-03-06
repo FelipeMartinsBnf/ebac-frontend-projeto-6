@@ -1,4 +1,9 @@
-import { BannerContainer, BannerTag, BannerTitle } from './styles'
+import {
+  BannerContainer,
+  BannerOverlay,
+  BannerTag,
+  BannerTitle
+} from './styles'
 
 export type BannerProps = {
   tag?: string
@@ -13,6 +18,7 @@ const Banner = ({ tag, image, title, type }: BannerProps) => (
       {tag && <BannerTag>{tag}</BannerTag>}
       <BannerTitle type={type}>{title}</BannerTitle>
     </div>
+    {type == 'restaurante' && <BannerOverlay />}
   </BannerContainer>
 )
 
