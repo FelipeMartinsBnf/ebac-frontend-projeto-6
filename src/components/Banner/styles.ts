@@ -9,6 +9,7 @@ export const BannerContainer = styled.div`
   font-size: 32px;
   background-repeat: no-repeat;
   background-size: cover;
+  background-position: center;
   display: flex;
   position: relative;
 
@@ -27,7 +28,7 @@ export const BannerTag = styled.p`
   top: 32px;
 `
 
-export const BannerTitle = styled.h2<BannerProps>`
+export const BannerTitle = styled.h2<Pick<BannerProps, 'type'>>`
   color: ${(props) => (props.type === 'home' ? colors.pink : colors.white)};
   text-align: ${(props) => (props.type === 'home' ? 'center' : 'left')};
 `

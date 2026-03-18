@@ -16,7 +16,7 @@ const Footer = () => (
       <img src={twitter} alt="Twitter" />
     </SocialMedia>
     <div>
-      <Text size="small">
+      <Text size="small" color="white">
         A efood é uma plataforma para divulgação de estabelecimentos, a
         responsabilidade pela entrega, qualidade dos produtos é toda do
         estabelecimento contratado.
