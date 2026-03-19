@@ -28,7 +28,7 @@ function PaginaRestaurante() {
         image={restaurante.capa}
         tag={restaurante.tipo}
       />
-      <MenuList itens={restaurante.cardapio} />
+      <MenuList itens={restaurante.cardapio} restauranteId={restaurante.id} />
     </>
   )
 }

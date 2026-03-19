@@ -11,8 +11,12 @@ import {
   ModalDescriptionText
 } from './styles'
 import Button from '../Button'
+import { useDispatch } from 'react-redux'
+import { addToCart, open } from '../../store/reducers/cart'
+import { formaterPreco } from '../Cart'
 
 export type MenuListProps = {
+  restauranteId: number
   itens: MenuItem[]
 }
 
@@ -20,7 +24,7 @@ export interface ModalState extends MenuItem {
   isOpen: boolean
 }
 
-const MenuList = ({ itens }: MenuListProps) => {
+const MenuList = ({ itens, restauranteId }: MenuListProps) => {
   const modalClosed = {
     id: 0,
     nome: '',
@@ -33,6 +37,14 @@ const MenuList = ({ itens }: MenuListProps) => {
 
   const [modal, setModal] = useState<ModalState>(modalClosed)
   const closeModal = () => setModal(modalClosed)
+
+  const dispatch = useDispatch()
+
+  const addGameToCart = () => {
+    dispatch(addToCart({ item: modal, restaurantId: restauranteId }))
+    dispatch(open())
+    closeModal()
+  }
 
   return (
     <Container>
@@ -56,7 +68,9 @@ const MenuList = ({ itens }: MenuListProps) => {
               <h3>{modal.nome}</h3>
               <p>{modal.descricao}</p>
               <p>{modal.porcao}</p>
-              <Button type="button">Adicionar ao carrinho</Button>
+              <Button type="button" onClick={addGameToCart}>
+                {'Adicionar ao carrinho - ' + formaterPreco(modal.preco)}
+              </Button>
             </ModalDescriptionText>
           </ModalDescription>
         </ModalContent>

@@ -8,4 +8,10 @@ export const HeaderContainer = styled.header`
     justify-content: space-between;
     align-items: center;
   }
+
+  button {
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
 `
